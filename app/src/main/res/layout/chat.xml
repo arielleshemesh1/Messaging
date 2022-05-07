@@ -1,0 +1,169 @@
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:card_view="http://schemas.android.com/tools"
+    android:layout_marginTop="8dp">
+
+    <!--  Receiver | Other User -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/chat_message_card_others"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="0dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        card_view:cardBackgroundColor="@android:color/transparent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="16dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/chat_image_others"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/avatar"
+                app:civ_border_width="1dp"
+                app:civ_border_color="#eef1f6"
+                android:contentDescription="Other Users Icon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"/>
+
+            <TextView
+                android:id="@+id/chat_user_others"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="8dp"
+                android:text="@string/app_author"
+                android:textSize="16sp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintLeft_toRightOf="@id/chat_image_others"/>
+
+            <LinearLayout
+                android:id="@+id/chat_container_others"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="#eef1f6"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/chat_user_others"
+                app:layout_constraintLeft_toRightOf="@id/chat_image_others">
+
+                <TextView
+                    android:id="@+id/chat_message_others"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:maxWidth="260dp"
+                    android:paddingLeft="12dp"
+                    android:paddingTop="8dp"
+                    android:paddingRight="12dp"
+                    android:text="The Message"
+                    android:textColor="#000000"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/chat_time_stamp_others"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="12:00"
+                android:textColor="#C0C0C0"
+                android:textSize="10sp"
+                app:layout_constraintTop_toBottomOf="@+id/chat_container_others"
+                app:layout_constraintEnd_toEndOf="@+id/chat_container_others" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <!--  Sender | Current User | Me -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/chat_message_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="0dp"
+        app:cardPreventCornerOverlap="false"
+        app:cardUseCompatPadding="true"
+        app:layout_constraintRight_toLeftOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/chat_message_card_others"
+        card_view:cardBackgroundColor="@android:color/transparent">
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginEnd="8dp"
+            android:layout_marginTop="16dp">
+
+            <de.hdodenhof.circleimageview.CircleImageView
+                android:id="@+id/chat_image"
+                android:layout_width="32dp"
+                android:layout_height="32dp"
+                android:src="@drawable/avatar"
+                app:civ_border_width="1dp"
+                app:civ_border_color="?colorPrimary"
+                android:contentDescription="Current Users Icon"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintLeft_toRightOf="parent"/>
+
+            <TextView
+                android:id="@+id/chat_user"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="8dp"
+                android:text="@string/app_author"
+                android:textSize="16sp"
+                app:layout_constraintEnd_toStartOf="@id/chat_image"
+                app:layout_constraintBottom_toTopOf="@id/chat_container"/>
+
+            <LinearLayout
+                android:id="@+id/chat_container"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:background="?colorPrimary"
+                app:layout_constraintTop_toBottomOf="@id/chat_user"
+                app:layout_constraintRight_toLeftOf="@id/chat_image">
+
+                <TextView
+                    android:id="@+id/chat_message"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:maxWidth="260dp"
+                    android:paddingLeft="12dp"
+                    android:paddingTop="8dp"
+                    android:paddingRight="12dp"
+                    android:text="This is a Message"
+                    android:textColor="#ffffff"
+                    android:textSize="16sp" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/chat_time_stamp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="13:00"
+                android:textColor="#C0C0C0"
+                android:textSize="10sp"
+                app:layout_constraintTop_toBottomOf="@+id/chat_container"
+                app:layout_constraintStart_toStartOf="@+id/chat_container" />
+
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
